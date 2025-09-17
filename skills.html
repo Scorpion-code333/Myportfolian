@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills</title>
+    <link rel="stylesheet" href="MYP.css">
+</head>
+<body>
+    <!-- skills section -->
+    <section class="skills-section">
+        <h1>My <span id="skills">Skills</span></h1>
+      
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="circle" data-value="100" style="--color:#00c853"><span class="percentage">100%</span></div>
+            <h3>HTML</h3>
+            <p>Markup language for web structure.</p>
+          </div>
+          <div class="skill-card">
+            <div class="circle" data-value="98" style="--color:blue"><span class="percentage">98%</span></div>
+            <h3>CSS</h3>
+            <p>Design and layout styling.</p>
+          </div>
+          <div class="skill-card">
+            <div class="circle" data-value="67" style="--color: #b74b4b"><span class="percentage">67%</span></div>
+            <h3>JavaScript</h3>
+            <p>Simple interactivity features.</p>
+          </div>
+        </div>
+          <div class="skill-card">
+            <div class="circle" data-value="79" style="--color:purple"><span class="percentage">79%</span></div>
+            <h3>Debugging</h3>
+            <p>Fixing layout and design bugs.</p>
+          </div>
+        
+      </section>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const circles = document.querySelectorAll('.circle');
+      
+          circles.forEach(circle => {
+            const percent = parseInt(circle.dataset.value);
+            let current = 0;
+      
+            const interval = setInterval(() => {
+              current++;
+              if (current > percent) clearInterval(interval);
+      
+              circle.style.setProperty('--value', current);
+            }, 10); // Speed of animation (10ms per %)
+          });
+        });
+      </script>
+</body>
+</html>
